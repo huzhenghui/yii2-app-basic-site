@@ -1,6 +1,17 @@
 {
-    "name": "huzhenghui/yii2-app-basic-site",
-    "description": "",
-    "require": {
+  "name": "huzhenghui/yii2-app-basic-site",
+  "description": "",
+  "type": "library",
+  "authors": [
+    {
+      "name": "胡争辉",
+      "email": "hu@daonao.com"
     }
+  ],
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "huzhenghui\\yii2\\app_basic\\site\\": "src"
+    }
+  }
 }
