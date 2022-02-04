@@ -6,6 +6,7 @@ use Yii;
 
 use app\controllers\SiteController as AppSiteController;
 
+use huzhenghui\yii2\app_basic\site\models\LoginForm;
 use huzhenghui\yii2\app_basic\site\models\ContactForm;
 
 class SiteController extends AppSiteController
@@ -20,6 +21,28 @@ class SiteController extends AppSiteController
             $layout = '@app' . substr($layoutViewPath, strlen($appAlias)) . '/layouts/main';
         }
         $this->layout = $layout;
+    }
+
+    /**
+     * Login action.
+     *
+     * @return Response|string
+     */
+    public function actionLogin()
+    {
+        if (!Yii::$app->user->isGuest) {
+            return $this->goHome();
+        }
+
+        $model = new LoginForm();
+        if ($model->load(Yii::$app->request->post()) && $model->login()) {
+            return $this->goBack();
+        }
+
+        $model->password = '';
+        return $this->render('login', [
+            'model' => $model,
+        ]);
     }
 
     /**
