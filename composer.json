@@ -8,7 +8,9 @@
       "email": "hu@daonao.com"
     }
   ],
-  "require": {},
+  "require": {
+    "yiisoft/yii2-app-basic": "~2.0"
+  },
   "autoload": {
     "psr-4": {
       "huzhenghui\\yii2\\app_basic\\site\\": "src"
